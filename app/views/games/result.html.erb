@@ -1,0 +1,22 @@
+<%= @end_time %>
+<% session[:score] << @results[:score] %>
+<div class="container">
+  <div class="display">
+    <h1>Your Game Results</h1>
+    <div id="result">
+      <p><%= @results[:message] %></p>
+      <p>Your score : <%= @results[:score].round(0) %></p>
+      <p>Your time : <%= @results[:time].round(0) %> seconds</p>
+    </div>
+    <%= link_to 'One more game ?', guess_path %>
+  </div>
+
+  <div class="display">
+    <h1>Your Total Results</h1>
+    <div id="result">
+    <p>Total: <%= session[:score].sum.round %></p>
+    </div>
+  </div>
+</div>
+
+<% console %>

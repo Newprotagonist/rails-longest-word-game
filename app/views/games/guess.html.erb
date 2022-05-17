@@ -1,0 +1,21 @@
+<%= @start_time = Time.now %>
+<div class="display">
+  <h1>GUESS</h1>
+  <% @grid.each do |letter|  %>
+    <ul>
+      <li id="letters"><%= letter %></li>
+    </ul>
+  <% end %>
+
+  <form action="/result" method="get" class="form-example">
+    <div class="form-example">
+      <label id="label" for="name">What is the longest word you can guess ? </label>
+      <div>
+        <input type="text" name="guess" id="guess" required>
+      </div>
+        <input id="guess-btn" type="submit" value="Guess!">
+        <input type="hidden" name="grid" value="<%=@grid.join%>">
+        <input type="hidden" name="start_time" value= "<%= @start_time%>" >
+    </div>
+  </form>
+</div>
